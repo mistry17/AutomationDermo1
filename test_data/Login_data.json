@@ -1,0 +1,15 @@
+{
+  "login_data" : [
+    {
+      "username" : "admin",
+      "password" : "admin123"
+    }
+  ],
+  "employee_data" : [
+    {
+      "first_name" : "abc",
+      "middle_name" : "def",
+      "last_name" : "ghi"
+    }
+  ]
+}

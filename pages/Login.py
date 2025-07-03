@@ -4,7 +4,7 @@ from utils.Utils import Utils
 class LoginPage(Utils):
 
     def __init__(self, driver):
-        super().__init__()
+        super().__init__(driver)
         self.driver = driver
 
     username = (By.NAME, "username")

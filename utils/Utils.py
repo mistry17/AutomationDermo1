@@ -1,12 +1,13 @@
 import inspect
 import logging
-
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class Utils:
-    # def __init__(self,driver):
-    #     self.driver = driver
+    def __init__(self,driver):
+        self.driver = driver
 
-    def get_title(self, driver):
+    def get_title(self):
         return self.driver.title
 
     def custom_logger(loggers = logging.DEBUG):
@@ -20,3 +21,8 @@ class Utils:
         fh.setFormatter(format_date_and_time)
         logger.addHandler(fh)
         return logger
+
+    def custom_implicit_wait(self, locator, timeout=10):
+        return WebDriverWait(self.driver, timeout).until(
+            EC.visibility_of_element_located(locator)
+        )
