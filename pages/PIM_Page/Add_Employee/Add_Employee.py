@@ -1,8 +1,13 @@
+import time
+
 from selenium.webdriver.common.by import By
+from selenium.webdriver import Keys, ActionChains
+from utils.Utils import Utils
 
 
-class Add_Employee:
+class Add_Employee(Utils):
     def __init__(self, driver):
+        super().__init__(driver)
         self.driver = driver
 
     first_name = (By.CSS_SELECTOR, ".orangehrm-firstname")
@@ -10,6 +15,7 @@ class Add_Employee:
     last_name = (By.CSS_SELECTOR, ".orangehrm-lastname")
     cancel_btn = (By.XPATH, "//button[normalize-space()='Cancel']")
     save_btn = (By.XPATH, "//button[normalize-space()='Save']")
+    emp_id = (By.XPATH, "(//input[@class='oxd-input oxd-input--active'])[2]")
 
     def enter_first_name(self, name):
         self.driver.find_element(*self.first_name).send_keys(name)
@@ -25,3 +31,11 @@ class Add_Employee:
 
     def click_on_cancel(self):
         self.driver.find_element(*self.cancel_btn).click()
+
+    def enter_emp_id(self):
+        employee_id = self.driver.find_element(*self.emp_id)
+        employee_id.click()
+        employee_id.send_keys(Keys.CONTROL, "a")
+        employee_id.send_keys(Keys.BACKSPACE)
+        employee_id.send_keys(str(self.generate_emp_id()))
+

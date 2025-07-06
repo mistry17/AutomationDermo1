@@ -3,7 +3,6 @@ from utils.Utils import Utils
 
 class PIM:
     def __init__(self, driver):
-        #super().__init__()
         self.driver = driver
 
     employee_list = (By.XPATH, "//a[text()='Employee List']")

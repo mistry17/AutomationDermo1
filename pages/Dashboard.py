@@ -21,7 +21,13 @@ class Dashboard:
     claim = (By.XPATH, "//ul[@class= 'oxd-main-menu']/li[11]")
     buzz = (By.XPATH, "//ul[@class= 'oxd-main-menu']/li[12]")
     profile_dropdown = (By.CSS_SELECTOR, ".oxd-userdropdown-tab")
-    log_out = (By.XPATH, "//a[text()='Logout']")
+    log_out = (By.LINK_TEXT, "Logout")
 
     def click_on_pim(self):
         self.driver.find_element(*self.pim).click()
+
+    def click_on_profile_dropdown(self):
+        self.driver.find_element(*self.profile_dropdown).click()
+
+    def click_on_logout(self):
+        self.driver.find_element(*self.log_out).click()

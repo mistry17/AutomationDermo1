@@ -1,5 +1,4 @@
 import pytest
-from pygments.lexer import default
 from selenium import webdriver
 
 def pytest_addoption(parser):
@@ -15,7 +14,7 @@ def driver_initialize(request):
         else:
             driver = webdriver.Firefox()
         driver.maximize_window()
-        driver.implicitly_wait(5.0)
+        driver.implicitly_wait(15)
         driver.get("https://opensource-demo.orangehrmlive.com/")
         yield driver
         driver.close()

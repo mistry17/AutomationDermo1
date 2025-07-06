@@ -1,5 +1,4 @@
 import time
-from pickle import FALSE
 
 from pages.Dashboard import Dashboard
 from pages.PIM_Page.Add_Employee.Add_Employee import Add_Employee
@@ -38,16 +37,29 @@ class Test_Employees:
         add_employee.enter_middle_name(employee_data["middle_name"])
         self.logs.info("Add last name of employee")
         add_employee.enter_last_name(employee_data["last_name"])
+        emp_id = add_employee.enter_emp_id()
+        self.logs.info(emp_id)
         self.logs.info("Click on save button")
         add_employee.click_on_save()
         assert "OrangeHRM" == driver.title
-        time.sleep(4)
         emp_list = Employee_List(driver)
+        emp_list.wait_for_confirmation()
+        emp_list.wait_for_first_name()
         emp_list.click_on_save_btn()
+        dashboard.click_on_profile_dropdown()
+        dashboard.click_on_logout()
+
+    @pytest.mark.parametrize("login_data , employee_data", combined_data)
+    def test_delete_emp(self, driver_initialize, employee_data, login_data):
+        driver = driver_initialize
+        login_page = TestLoginCases()
+        login_page.test_login_with_username_password(driver, login_data)
+        dashboard = Dashboard(driver)
+        dashboard.click_on_pim()
+        pim = PIM(driver)
         pim.click_on_employee_list()
+        emp_list = Employee_List(driver)
         emp_list.enter_first_name(employee_data["first_name"])
-        emp_list.click_on_search_btn()
-        time.sleep(2)
         emp_name = emp_list.get_employee_name()
         full_name = employee_data["first_name"] +" " + employee_data["middle_name"]
         self.logs.info(f"Full name is {full_name} equal to {emp_name}")
@@ -55,3 +67,5 @@ class Test_Employees:
         emp_list.click_on_delete_icon()
         emp_list.click_on_delete_yes_btn()
         self.logs.info(f"Deleted the {emp_name} record")
+        dashboard.click_on_profile_dropdown()
+        dashboard.click_on_logout()

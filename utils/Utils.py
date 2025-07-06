@@ -1,5 +1,6 @@
 import inspect
 import logging
+import random
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -22,7 +23,16 @@ class Utils:
         logger.addHandler(fh)
         return logger
 
-    def custom_implicit_wait(self, locator, timeout=10):
+    def custom_implicit_wait(self, locator, timeout=20):
         return WebDriverWait(self.driver, timeout).until(
             EC.visibility_of_element_located(locator)
         )
+
+    def wait_for_element_to_be_clickable(self, locator, timeout=20):
+        return WebDriverWait(self.driver, timeout).until(
+            EC.element_to_be_clickable(locator)
+        )
+
+    def generate_emp_id(self):
+        emp_id = random.randint(1000,9999)
+        return emp_id
