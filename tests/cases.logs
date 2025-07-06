@@ -890,3 +890,25 @@
 06/07/2025 09:40:29 PM - INFO : Add last name of employee
 06/07/2025 09:40:29 PM - INFO : None
 06/07/2025 09:40:29 PM - INFO : Click on save button
+06/07/2025 09:49:11 PM - INFO : Enter username
+06/07/2025 09:49:12 PM - INFO : Enter password
+06/07/2025 09:49:12 PM - INFO : Click on login button
+06/07/2025 09:49:16 PM - INFO : Login Successful
+06/07/2025 09:49:16 PM - INFO : Click on PIM
+06/07/2025 09:49:17 PM - INFO : Click on add employee button on PIM page
+06/07/2025 09:49:18 PM - INFO : Add first name of employee
+06/07/2025 09:49:19 PM - INFO : Add middle name of employee
+06/07/2025 09:49:19 PM - INFO : Add last name of employee
+06/07/2025 09:49:20 PM - INFO : None
+06/07/2025 09:49:20 PM - INFO : Click on save button
+06/07/2025 09:49:35 PM - INFO : Enter username
+06/07/2025 09:49:41 PM - INFO : Enter password
+06/07/2025 09:49:41 PM - INFO : Click on login button
+06/07/2025 09:49:45 PM - INFO : Login Successful
+06/07/2025 09:49:48 PM - INFO : Full name is abc def equal to 123445 34
+06/07/2025 09:51:18 PM - INFO : Enter username
+06/07/2025 09:51:19 PM - INFO : Enter password
+06/07/2025 09:51:19 PM - INFO : Click on login button
+06/07/2025 09:51:23 PM - INFO : Login Successful
+06/07/2025 09:51:27 PM - INFO : Full name is abc def equal to abc def
+06/07/2025 09:51:32 PM - INFO : Deleted the abc def record

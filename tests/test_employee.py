@@ -59,10 +59,10 @@ class Test_Employees:
         pim = PIM(driver)
         pim.click_on_employee_list()
         emp_list = Employee_List(driver)
-        emp_list.enter_first_name(employee_data["first_name"])
+        full_name = employee_data["first_name"] + " " + employee_data["middle_name"]
+        emp_list.enter_first_name(full_name)
         emp_list.click_on_search_btn()
         emp_name = emp_list.get_employee_name()
-        full_name = employee_data["first_name"] +" " + employee_data["middle_name"]
         self.logs.info(f"Full name is {full_name} equal to {emp_name}")
         time.sleep(5)
         assert emp_name.__eq__(full_name)
