@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 
@@ -9,7 +11,7 @@ class Employee_List(Utils):
         super().__init__(driver)
         self.driver = driver
 
-    save_btn = (By.XPATH, "//div[@class='orangehrm-horizontal-padding orangehrm-vertical-padding']//button[@type='submit']")
+    sv_btn = (By.XPATH, "(//button[@type='submit'][normalize-space()='Save'])[1]")
     employee_name = (By.XPATH, "(//input[@placeholder='Type for hints...'])[1]")
     search_btn = (By.XPATH, "//button[normalize-space()='Search']")
     employee_in_list = (By.XPATH, "(//div[@role='cell'])[3]")
@@ -19,9 +21,8 @@ class Employee_List(Utils):
     first_name = (By.NAME, "firstName")
 
     def click_on_save_btn(self):
-        save_btn = self.driver.find_element(By.XPATH, "//div[@class='orangehrm-horizontal-padding orangehrm-vertical-padding']//button[@type='submit']")
-        ActionChains(self.driver).move_to_element(save_btn).perform()
-        self.wait_for_element_to_be_clickable(self.save_btn).click()
+        time.sleep(3)
+        self.wait_for_element_to_be_clickable(self.sv_btn).click()
 
     def enter_first_name(self, emp_name):
         self.custom_implicit_wait(self.employee_name).send_keys(emp_name)

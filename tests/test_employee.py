@@ -20,7 +20,7 @@ class Test_Employees:
     logs = Utils.custom_logger()
 
     @pytest.mark.parametrize("login_data, employee_data", combined_data)
-    def test_add_verify_delete_employee(self, driver_initialize, login_data, employee_data):
+    def test_add_verify_employee(self, driver_initialize, login_data, employee_data):
         driver = driver_initialize
         login = TestLoginCases()
         login.test_login_with_username_password(driver, login_data)

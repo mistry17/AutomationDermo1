@@ -23,12 +23,12 @@ class Utils:
         logger.addHandler(fh)
         return logger
 
-    def custom_implicit_wait(self, locator, timeout=20):
+    def custom_implicit_wait(self, locator, timeout=200):
         return WebDriverWait(self.driver, timeout).until(
             EC.visibility_of_element_located(locator)
         )
 
-    def wait_for_element_to_be_clickable(self, locator, timeout=20):
+    def wait_for_element_to_be_clickable(self, locator, timeout=200):
         return WebDriverWait(self.driver, timeout).until(
             EC.element_to_be_clickable(locator)
         )
